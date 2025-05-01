@@ -1,0 +1,26 @@
+<!-- templates/layout.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafes for Remote Work</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <nav class="bg-white shadow p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">RemoteWork Cafes</h1>
+            <div class="space-x-4">
+                <a href="{{ url_for('add_cafe') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Cafe</a>
+                <a href="{{ url_for('scrape_cafes') }}" id="scrapeButton" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Scrape Cafes</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto p-4">
+        {% block content %}{% endblock %}
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
